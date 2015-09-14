@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Facebook-php-sdk-v4 by Tiger66639</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/Tiger66639/facebook-php-sdk-v4">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/Tiger66639/facebook-php-sdk-v4/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/Tiger66639/facebook-php-sdk-v4/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Facebook-php-sdk-v4</h1>
+          <p>The Facebook SDK for PHP provides a native interface to the Graph API and Facebook Login.  https://developers.facebook.com/docs/php</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/Tiger66639">Tiger66639</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a id="facebook-sdk-for-php" class="anchor" href="#facebook-sdk-for-php" aria-hidden="true"><span class="octicon octicon-link"></span></a>Facebook SDK for PHP</h1>
+
+<p><a href="https://travis-ci.org/facebook/facebook-php-sdk-v4"><img src="https://img.shields.io/travis/facebook/facebook-php-sdk-v4/master.svg" alt="Build Status"></a>
+<a href="https://scrutinizer-ci.com/g/facebook/facebook-php-sdk-v4/?branch=master"><img src="https://scrutinizer-ci.com/g/facebook/facebook-php-sdk-v4/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a>
+<a href="https://packagist.org/packages/facebook/php-sdk-v4"><img src="http://img.shields.io/badge/Latest%20Stable-5.0.0-blue.svg" alt="Latest Stable Version"></a></p>
+
+<p>This repository contains the open source PHP SDK that allows you to access the Facebook Platform from your PHP app.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>The Facebook PHP SDK can be installed with <a href="https://getcomposer.org/">Composer</a>. Add the Facebook PHP SDK package to your <code>composer.json</code> file.</p>
+
+<div class="highlight highlight-source-json"><pre>{
+    <span class="pl-s"><span class="pl-pds">"</span>require<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>facebook/php-sdk-v4<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>~5.0<span class="pl-pds">"</span></span>
+    }
+}</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<blockquote>
+<p><strong>Note:</strong> This version of the Facebook SDK for PHP requires PHP 5.4 or greater.</p>
+</blockquote>
+
+<p>Simple GET example of a user's profile.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$fb</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Facebook\</span><span class="pl-c1">Facebook</span>([</span>
+<span class="pl-s1">  <span class="pl-s"><span class="pl-pds">'</span>app_id<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>{app-id}<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">  <span class="pl-s"><span class="pl-pds">'</span>app_secret<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>{app-secret}<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">  <span class="pl-s"><span class="pl-pds">'</span>default_graph_version<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>v2.4<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">  <span class="pl-c">//'default_access_token' =&gt; '{access-token}', // optional</span></span>
+<span class="pl-s1">]);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// Use one of the helper classes to get a Facebook\Authentication\AccessToken entity.</span></span>
+<span class="pl-s1"><span class="pl-c">//   $helper = $fb-&gt;getRedirectLoginHelper();</span></span>
+<span class="pl-s1"><span class="pl-c">//   $helper = $fb-&gt;getJavaScriptHelper();</span></span>
+<span class="pl-s1"><span class="pl-c">//   $helper = $fb-&gt;getCanvasHelper();</span></span>
+<span class="pl-s1"><span class="pl-c">//   $helper = $fb-&gt;getPageTabHelper();</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">try</span> {</span>
+<span class="pl-s1">  <span class="pl-c">// Get the Facebook\GraphNodes\GraphUser object for the current user.</span></span>
+<span class="pl-s1">  <span class="pl-c">// If you provided a 'default_access_token', the '{access-token}' is optional.</span></span>
+<span class="pl-s1">  <span class="pl-smi">$response</span> <span class="pl-k">=</span> <span class="pl-smi">$fb</span><span class="pl-k">-&gt;</span>get(<span class="pl-s"><span class="pl-pds">'</span>/me<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>{access-token}<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1">} <span class="pl-k">catch</span>(<span class="pl-c1">Facebook\Exceptions\</span><span class="pl-c1">FacebookResponseException</span> <span class="pl-smi">$e</span>) {</span>
+<span class="pl-s1">  <span class="pl-c">// When Graph returns an error</span></span>
+<span class="pl-s1">  <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>Graph returned an error: <span class="pl-pds">'</span></span> <span class="pl-k">.</span> <span class="pl-smi">$e</span><span class="pl-k">-&gt;</span>getMessage();</span>
+<span class="pl-s1">  <span class="pl-k">exit</span>;</span>
+<span class="pl-s1">} <span class="pl-k">catch</span>(<span class="pl-c1">Facebook\Exceptions\</span><span class="pl-c1">FacebookSDKException</span> <span class="pl-smi">$e</span>) {</span>
+<span class="pl-s1">  <span class="pl-c">// When validation fails or other local issues</span></span>
+<span class="pl-s1">  <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>Facebook SDK returned an error: <span class="pl-pds">'</span></span> <span class="pl-k">.</span> <span class="pl-smi">$e</span><span class="pl-k">-&gt;</span>getMessage();</span>
+<span class="pl-s1">  <span class="pl-k">exit</span>;</span>
+<span class="pl-s1">}</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-smi">$me</span> <span class="pl-k">=</span> <span class="pl-smi">$response</span><span class="pl-k">-&gt;</span>getGraphUser();</span>
+<span class="pl-s1"><span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">'</span>Logged in as <span class="pl-pds">'</span></span> <span class="pl-k">.</span> <span class="pl-smi">$me</span><span class="pl-k">-&gt;</span>getName();</span></pre></div>
+
+<p>Complete documentation, installation instructions, and examples are available at: <a href="https://developers.facebook.com/docs/php">https://developers.facebook.com/docs/php</a></p>
+
+<h2>
+<a id="tests" class="anchor" href="#tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tests</h2>
+
+<ol>
+<li>
+<a href="https://getcomposer.org/">Composer</a> is a prerequisite for running the tests. Install composer globally, then run <code>composer install</code> to install required files.</li>
+<li>Create a test app on <a href="https://developers.facebook.com">Facebook Developers</a>, then create <code>tests/FacebookTestCredentials.php</code> from <code>tests/FacebookTestCredentials.php.dist</code> and edit it to add your credentials.</li>
+<li>The tests can be executed by running this command from the root directory:</li>
+</ol>
+
+<div class="highlight highlight-source-shell"><pre>$ ./vendor/bin/phpunit</pre></div>
+
+<p>By default the tests will send live HTTP requests to the Graph API. If you are without an internet connection you can skip these tests by excluding the <code>integration</code> group.</p>
+
+<div class="highlight highlight-source-shell"><pre>$ ./vendor/bin/phpunit --exclude-group integration</pre></div>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>For us to accept contributions you will have to first have signed the <a href="https://developers.facebook.com/opensource/cla">Contributor License Agreement</a>. Please see <a href="https://github.com/facebook/facebook-php-sdk-v4/blob/master/CONTRIBUTING.md">CONTRIBUTING</a> for details.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Please see the <a href="https://github.com/facebook/facebook-php-sdk-v4/blob/master/LICENSE">license file</a> for more information.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
