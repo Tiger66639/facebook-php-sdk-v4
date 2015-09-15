@@ -1,8 +1,5 @@
 # Facebook SDK for PHP
-
-[![Build Status](https://img.shields.io/travis/facebook/facebook-php-sdk-v4/master.svg)](https://travis-ci.org/facebook/facebook-php-sdk-v4)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/facebook/facebook-php-sdk-v4/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/facebook/facebook-php-sdk-v4/?branch=master)
-[![Latest Stable Version](http://img.shields.io/badge/Latest%20Stable-5.0.0-blue.svg)](https://packagist.org/packages/facebook/php-sdk-v4)
+[![Build Status](https://travis-ci.org/Tiger66639/facebook-php-sdk-v4.svg)](https://travis-ci.org/Tiger66639/facebook-php-sdk-v4)
 
 
 This repository contains the open source PHP SDK that allows you to access the Facebook Platform from your PHP app.
